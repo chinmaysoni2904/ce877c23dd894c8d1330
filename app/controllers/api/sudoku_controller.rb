@@ -9,7 +9,7 @@ class Api::SudokuController < ApplicationController
         sudoku[x, y] = value.to_i unless value.blank?
       end
     end
-    response = sudoku.solve(sudoku)
+    response = sudoku.solve_sudoku(sudoku)
     render :json => {solution: response}
   end
 
