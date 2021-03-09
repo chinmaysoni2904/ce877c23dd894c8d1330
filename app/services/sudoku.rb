@@ -60,13 +60,7 @@ class Sudoku
     empty.empty?
   end
 
-  def solve input
-    sudoku = Sudoku.new
-    input.each_with_index do |row, y|
-      row.each_with_index do |value, x|
-        sudoku[x, y] = value.to_i unless value.blank?
-      end
-    end
+  def solve sudoku
     return sudoku  if sudoku.solved?
     x,y = sudoku.empty.first
     allowed = sudoku.allowed(x, y).compact
